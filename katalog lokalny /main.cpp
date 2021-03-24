@@ -3,6 +3,7 @@
 #include "Statystyka.hh"
 #include <fstream>
 
+
 using namespace std;
 
 int main(int argc, char **argv)
@@ -30,8 +31,10 @@ int main(int argc, char **argv)
   cout << endl;
 
   WyrazenieZesp WyrZ_PytanieTestowe;
-  score final;
-  final.iloscpytan = BazaT.IloscPytan;
+  // LZespolona LZesp_testpoprawnosci, LZesp_pytaniatestowe;
+  // score final;
+  // final.iloscpytan = BazaT.IloscPytan;
+  // int pomylka;
 
   while (PobierzNastpnePytanie(&BazaT, &WyrZ_PytanieTestowe))
   {
@@ -39,12 +42,45 @@ int main(int argc, char **argv)
     cout << WyrZ_PytanieTestowe.Arg1.re << endl;
     cout << "Twoja odpowiedz:";
   }
-  wyswietlwynik(final);
+  // wyswietlwynik(final);
   cout << endl;
   cout << " Koniec testu" << endl;
   cout << endl;
   // wyswietlwynik(final);
 
+
+  //test
+
+  // while (PobierzNastpnePytanie(&BazaT, &WyrZ_PytanieTestowe))
+  // {
+  //   LZesp_testpoprawnosci=Oblicz(WyrZ_PytanieTestowe);
+  //   cout << " Czesc rzeczywista pierwszego argumentu: ";
+  //   cout << WyrZ_PytanieTestowe << endl;
+  //   cout << "Twoja odpowiedz:";
+  //   cin >> LZesp_pytaniatestowe;
+  //   while (StrmWe.fail() && pomylka < 2)
+  //   {
+  //     cerr << ":! Niepoprawna forma liczby zespolonej, wprowadz ponownie";
+  //     StrmWe.clear();
+  //     StrmWe.ignore(100, "\n");
+  //     StrmWe >> LZesp_pytaniatestowe;
+  //     cout << endl;
+  //     pomylka++;
+
+  //   }
+  //   if (LZesp_pytaniatestowe == LZesp_testpoprawnosci)
+  //   {
+  //     cout << "Gratulacje poprawna odpowiedz :)" <<endl;
+  //     final.zpkt++;
+  //   }
+  //   else
+  //   {
+  //     cout << "Bledna odpowiedz :( Zobacz poprawny wynik:";
+  //     StrmWy << LZesp_testpoprawnosci << endl;
+  //   }
+  //   pomylka=0;
+
+  // }
 
 
 

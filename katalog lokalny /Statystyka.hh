@@ -1,6 +1,7 @@
 #ifndef STATYSTYKA_HH
 #define STATYSTYKA_HH
 
+#include "BazaTestu.hh"
 #include <iostream>
 #include <iomanip>
 
@@ -17,6 +18,6 @@ struct score
 
 
 void wyswietlwynik(score elem);
-
+void dobraodp(score elem);
 
 #endif

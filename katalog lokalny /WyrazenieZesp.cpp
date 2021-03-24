@@ -1,9 +1,10 @@
 #include "WyrazenieZesp.hh"
 #include "LZespolona.hh"
+
 #include <iostream>
-#include <cmath>
+// #include <cmath>
 #include <cstring>
-#include <fstream>
+// #include <fstream>
 
 using namespace std;
 
@@ -14,29 +15,31 @@ using namespace std;
 
 LZespolona Oblicz(WyrazenieZesp WyrZ)
 {
+  LZespolona wynik;
     switch (WyrZ.Op)
     {
     case Op_Dodaj:
     {
-        return WyrZ.Arg1 + WyrZ.Arg2;
+        wynik= WyrZ.Arg1 + WyrZ.Arg2;
     }
     break;
     case Op_Odejmij:
     {
-        return WyrZ.Arg1 - WyrZ.Arg2;
+        wynik= WyrZ.Arg1 - WyrZ.Arg2;
     }
     break;
     case Op_Mnoz:
     {
-        return WyrZ.Arg1 * WyrZ.Arg2;
+        wynik= WyrZ.Arg1 * WyrZ.Arg2;
     }
     break;
     case Op_Dziel:
     {
-        return WyrZ.Arg1 / WyrZ.Arg2;
+        wynik= WyrZ.Arg1 / WyrZ.Arg2;
     }
     break;
     }
+    return wynik;
 }
 
 
@@ -54,48 +57,54 @@ LZespolona Oblicz(WyrazenieZesp WyrZ)
 //     cin >> WyrZ.Arg1 >> char(WyrZ.Op) >> WyrZ.Arg2;
 // }
 
-ostream & operator << (ostream & StrmWy, WyrazenieZesp & WyrZ)
+ostream & operator<< (ostream & StrmWy, WyrazenieZesp & WyrZ)
 {
     return StrmWy << WyrZ.Arg1 << " " << char(WyrZ.Op) << " " << WyrZ.Arg2;
 }
 
 
-istream & operator >> (istream & StrmWe, WyrazenieZesp & Wpom)
+istream &operator>> (istream & StrmWej, WyrazenieZesp & Wpom)
 {
     // WyrazenieZesp OperChars[]={Op_Dodaj, Op_Odejmij, Op_Dziel, Op_Mnoz};
     char plusiminus='x';
     char const *OperChars="+-*/", *pomOperplusiminus;
 
-    if (StrmWe.fail())
+    if (StrmWej.fail())
   {
-    return StrmWe;
+    return StrmWej;
   }
-    StrmWe >> Wpom.Arg1;
-    if (StrmWe.fail())
+    StrmWej >> Wpom.Arg1;
+    if (StrmWej.fail())
   {
-    return StrmWe;
+    return StrmWej;
   }
-    StrmWe >> plusiminus;
-    if (StrmWe.fail()) 
-        return StrmWe;
+    StrmWej >> plusiminus;
+    if (StrmWej.fail()) 
+        return StrmWej;
     if ((pomOperplusiminus=strchr(OperChars,plusiminus)))
     {
       plusiminus  = OperChars[pomOperplusiminus - OperChars]; 
     }
     else 
     {
-        StrmWe.setstate(ios::failbit);
+        StrmWej.setstate(ios::failbit);
     }
     // Wpom.Op = plus   iminus;
-    return StrmWe;
+    // return StrmWe;
 
-    StrmWe >> Wpom.Arg2;
-    if (StrmWe.fail())
-    return StrmWe;
+    if (StrmWej.fail())
+  {
+    return StrmWej;
+  }
+    StrmWej >> Wpom.Arg2;
+    if (StrmWej.fail())
+    return StrmWej;
 
 
-    if (StrmWe.fail()) return StrmWe;
-        StrmWe.setstate(ios::failbit);
+    return StrmWej;
+
+    // if (StrmWe.fail()) return StrmWe;
+    //     StrmWe.setstate(ios::failbit);
 }
 
 

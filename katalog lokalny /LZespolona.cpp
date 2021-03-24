@@ -6,25 +6,25 @@
 // #include <string>
 // #define MIN_DIFF 0.00001;
 
-// using namespace std;
+using namespace std;
 
-void wyswietl(LZespolona skl)
-{
-   cout <<"(" << skl.re <<showpos << skl.im << noshowpos << "i)";
-}
+// void wyswietl(LZespolona skl)
+// {
+//    cout <<"(" << skl.re <<showpos << skl.im << noshowpos << "i)";
+// }
 
-void wczytaj(LZespolona Skl1)
-{
-  char lnawias, pnawias, i, znak;
-  cin >>lnawias >> Skl1.re >>znak >> Skl1.im >> i>> pnawias ;
-}
+// void wczytaj(LZespolona Skl1)
+// {
+//   char lnawias, pnawias, i, znak;
+//   cin >>lnawias >> Skl1.re >>znak >> Skl1.im >> i>> pnawias ;
+// }
 
 ostream & operator << (ostream & StrmWy, const LZespolona & Lwy)
 {
   return StrmWy << "(" << Lwy.re <<showpos << Lwy.im << noshowpos << "i)";
 }
 
-istream & operator >> (istream & StrmWe, LZespolona Ln)
+istream& operator >> (istream & StrmWe, LZespolona Ln)
 {
   char nawias, litera;
   StrmWe >> nawias;

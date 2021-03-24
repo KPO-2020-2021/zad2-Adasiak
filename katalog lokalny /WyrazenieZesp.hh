@@ -9,7 +9,7 @@
 // #include <iomanip>
 
 
-using namespace std;
+// using namespace std;
 /*!
  * Modeluje zbior operatorow arytmetycznych.
  */
@@ -41,8 +41,8 @@ void Wczytaj(WyrazenieZesp WyrZ);
 
 LZespolona Oblicz(WyrazenieZesp WyrZ);
 
-ostream & operator << (ostream & StrmWy, WyrazenieZesp & WyrZ);
+ostream & operator<< (ostream & StrmWy,const WyrazenieZesp & WyrZ);
 
-istream & operator >> (istream & StrmWe, WyrazenieZesp & Wpom);
+istream &operator>> (istream & StrmWej, WyrazenieZesp & Wpom);
 
 #endif
