@@ -1,10 +1,10 @@
 #include "LZespolona.hh"
 // #include <iostream>
-// #include <cmath>
+#include <cmath>
 // #include <iomanip>
 // #include <fstream>
 // #include <string>
-// #define MIN_DIFF 0.00001;
+#define MIN_DIFF 0.00001
 
 using namespace std;
 
@@ -19,12 +19,12 @@ using namespace std;
 //   cin >>lnawias >> Skl1.re >>znak >> Skl1.im >> i>> pnawias ;
 // }
 
-ostream & operator << (ostream & StrmWy, const LZespolona & Lwy)
+ostream & operator << (ostream & StrmWy,  LZespolona  Lwy)
 {
   return StrmWy << "(" << Lwy.re <<showpos << Lwy.im << noshowpos << "i)";
 }
 
-istream& operator >> (istream & StrmWe, LZespolona Ln)
+istream& operator >> (istream & StrmWe, LZespolona &Ln)
 {
   char nawias, litera;
   StrmWe >> nawias;
@@ -89,16 +89,22 @@ istream& operator >> (istream & StrmWe, LZespolona Ln)
  *    Sume dwoch skladnikow przekazanych jako parametry.
  */
 
-LZespolona Sprzezenie(LZespolona skl)
+//   LZespolona Sprzezenie(LZespolona skl)
+// {
+//   skl.im*=-1;
+//   return skl;
+// }
+
+  LZespolona LZespolona::Sprzezenie(/*LZespolona skl*/)
 {
-  skl.im*=-1;
-  return skl;
+  // skl.im*=-1;
+  // return skl;
 }
 
 /*Funkcja modol, funkcja pomocnicza przy dzieleniu liczb zespolonych*/
 double modul2(LZespolona Skl2)
 {
-  return sqrt((pow(Skl2.re,2)) + (pow(Skl2.im,2),2));
+  return sqrt( pow(Skl2.re,2) + pow(Skl2.im,2));
 }
 
 /*Operator dodawania wykonuje dodawanie liczb zespolonych*/
@@ -110,6 +116,15 @@ LZespolona  operator + (LZespolona  Skl1,  LZespolona  Skl2)
   Wynik.im = Skl1.im + Skl2.im;
   return Wynik;
 }
+
+// LZespolona  LZespolona::operator + (LZespolona  Skl2)
+// {
+//   Skl2.re += Skl1.re;
+  
+//   return Wynik;
+// }
+
+
 
 /*Operator odejmowania wykonuje odejmowanie liczb zespolonych*/
 
@@ -140,10 +155,11 @@ LZespolona  operator * (LZespolona  Skl1,  LZespolona  Skl2)
 LZespolona operator / (LZespolona Skl2, double liczba)
 {
   LZespolona  Wynik;
-  if ((liczba==0))
+  if ((liczba<=(MIN_DIFF)))
   {
-    cerr<<"Dzielenie przez 0, program konczy dzialanie."<<endl;
-    exit(0);
+    // cerr<<"Dzielenie przez 0,22222 program konczy dzialanie."<<endl;
+    throw std::domain_error("dzielnie prze 0");
+    // exit(0);
   }
   else
   {
@@ -157,10 +173,11 @@ LZespolona operator / (LZespolona Skl2, double liczba)
 LZespolona  operator / (LZespolona  Skl1,  LZespolona  Skl2)
 {
   LZespolona  Wynik;
-  if ((modul2(Skl2)==0))
+  if ((modul2(Skl2))<=(MIN_DIFF)) 
   {
-    cerr<<"Dzielenie przez (0+0i), program konczy dzialanie."<<endl;
-    exit(0);
+    // cerr<<"Dzielenie przez (0+0i),1111111 program konczy dzialanie."<<endl;
+    throw std::domain_error("dzielnie prze 01111");
+    // exit(0);
   }
   else
   {
@@ -170,20 +187,54 @@ LZespolona  operator / (LZespolona  Skl1,  LZespolona  Skl2)
 }
 
 bool operator == (LZespolona Skl1, LZespolona Skl2)
-{
-  if ((Skl1.re == Skl2.re) && (Skl1.im == Skl2.im))
-  {
-    return true ;
-  }
-  else 
-  return false ;
-}
 // {
-//   if ((abs(Skl1.re-Skl2.im) <= (MIN_DIFF)) && (abs(Skl1.im-Skl2.im) <= (MIN_DIFF)))
-//       return true;
-//     else
-//       return false;
+  // if ((Skl1.re == Skl2.re) && (Skl1.im == Skl2.im))
+  // {
+  //   return true ;
+  // }
+  // else
+    
+  //   // return false ;
+  // throw domain_error("nie poprawne porownanie");
+  // // return false ;
 // }
+{
+  if ((abs(Skl1.re-Skl2.re) <= (MIN_DIFF)) && (abs(Skl1.im-Skl2.im) <= (MIN_DIFF)))
+      return true;
+    else
+      throw std::domain_error("nie poprawne porownanie");
+      // return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

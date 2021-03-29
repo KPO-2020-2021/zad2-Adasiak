@@ -5,7 +5,7 @@
 #include <fstream>
 #include <cstring>
 #include <cmath>
-
+#define MIN_DIFF 0.00001
 
 /*!
  *  Plik zawiera definicje struktury LZesplona oraz zapowiedzi
@@ -21,6 +21,21 @@ using namespace std;
 struct  LZespolona {
   double   re;    /*! Pole repezentuje czesc rzeczywista. */
   double   im;    /*! Pole repezentuje czesc urojona. */
+
+
+// public:
+  LZespolona Sprzezenie(/*LZespolona skl*/);
+  
+  double modul2();
+
+  // LZespolona operator + (/*LZespolona  Skl1,*/  LZespolona  Skl2);
+  // LZespolona operator - (/*LZespolona Skl1,*/ LZespolona Skl2);
+  // LZespolona operator * (/*LZespolona Skl1,*/ LZespolona Skl2);
+  // LZespolona operator / (/*LZespolona Skl1,*/ LZespolona Skl2);
+  // LZespolona operator / (LZespolona Skl2, double liczba);
+  // LZespolona Sprzezenie(LZespolona skl);
+  // void Sprzezenie();
+
 };
 
 
@@ -29,14 +44,14 @@ struct  LZespolona {
  */
 
 //void wyswietl(LZespolona );
-double modul2(LZespolona Skl2);
+// double modul2(LZespolona Skl2);
 
 LZespolona operator + (LZespolona  Skl1,  LZespolona  Skl2);
 LZespolona operator - (LZespolona Skl1, LZespolona Skl2);
 LZespolona operator * (LZespolona Skl1, LZespolona Skl2);
 LZespolona operator / (LZespolona Skl1, LZespolona Skl2);
 LZespolona operator / (LZespolona Skl2, double liczba);
-LZespolona Sprzezenie(LZespolona skl);
+// LZespolona Sprzezenie(LZespolona skl);
 
 bool operator == (LZespolona Skl1, LZespolona Skl2);
 
@@ -44,8 +59,8 @@ bool operator == (LZespolona Skl1, LZespolona Skl2);
 void wyswietl(LZespolona skl);
 void wczytaj(LZespolona Skl1 );
 
-ostream & operator << (ostream & StrmWy, const LZespolona & Lwy);
-istream & operator >> (istream & StrmWe , LZespolona & Lwe);
+ostream & operator << (ostream & StrmWy, LZespolona  Lwy);
+istream & operator >> (istream & StrmWe , LZespolona & Ln);
 
 #endif
 

@@ -35,13 +35,20 @@ int main(int argc, char **argv)
   // score final;
   // final.iloscpytan = BazaT.IloscPytan;
   // int pomylka;
-
-  while (PobierzNastpnePytanie(&BazaT, &WyrZ_PytanieTestowe))
+  try
   {
-    cout << " Czesc rzeczywista pierwszego argumentu: ";
-    cout << WyrZ_PytanieTestowe.Arg1.re << endl;
-    cout << "Twoja odpowiedz:";
+    while (PobierzNastpnePytanie(&BazaT, &WyrZ_PytanieTestowe))
+    {
+      cout << " Czesc rzeczywista pierwszego argumentu: ";
+      cout << WyrZ_PytanieTestowe.Arg1.re << endl;
+      cout << "Twoja odpowiedz:";
+    }
   }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+
   // wyswietlwynik(final);
   cout << endl;
   cout << " Koniec testu" << endl;
@@ -51,9 +58,10 @@ int main(int argc, char **argv)
 
   //test
 
-  // while (PobierzNastpnePytanie(&BazaT, &WyrZ_PytanieTestowe))
-  // {
+  while (PobierzNastpnePytanie(&BazaT, &WyrZ_PytanieTestowe))
+  {
   //   LZesp_testpoprawnosci=Oblicz(WyrZ_PytanieTestowe);
+  
   //   cout << " Czesc rzeczywista pierwszego argumentu: ";
   //   cout << WyrZ_PytanieTestowe << endl;
   //   cout << "Twoja odpowiedz:";

@@ -57,7 +57,7 @@ LZespolona Oblicz(WyrazenieZesp WyrZ)
 //     cin >> WyrZ.Arg1 >> char(WyrZ.Op) >> WyrZ.Arg2;
 // }
 
-ostream & operator << (ostream & StrmWy, WyrazenieZesp & WyrZ)
+ostream & operator << (ostream & StrmWy, WyrazenieZesp  WyrZ)
 {
     return StrmWy << WyrZ.Arg1 << " " << char(WyrZ.Op) << " " << WyrZ.Arg2;
 }

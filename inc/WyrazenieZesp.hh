@@ -40,7 +40,7 @@ void Wczytaj(WyrazenieZesp WyrZ);
 
 LZespolona Oblicz(WyrazenieZesp WyrZ);
 
-ostream & operator <<(ostream &StrmWy, WyrazenieZesp &WyrZ);
+ostream & operator <<(ostream &StrmWy, WyrazenieZesp WyrZ);
 
 istream & operator >>(istream &StrWe, WyrazenieZesp &Wpom);
 
