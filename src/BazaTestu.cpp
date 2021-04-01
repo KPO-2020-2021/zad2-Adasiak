@@ -51,13 +51,19 @@ static WyrazenieZesp  TestTrudny[] =
  *      - Parametr IloscPytan zawiera wartosc, ktora nie przekracza ilosci elementow
  *        w tablicy dostepnej poprzez wskTabTestu.
  */
-void UstawTest( BazaTestu *wskBazaTestu, WyrazenieZesp *wskTabTestu, unsigned int IloscPytan )
+void  UstawTest( BazaTestu *wskBazaTestu, WyrazenieZesp *wskTabTestu, unsigned int IloscPytan )
 {
   wskBazaTestu->wskTabTestu = wskTabTestu;
   wskBazaTestu->IloscPytan = IloscPytan;
   wskBazaTestu->IndeksPytania = 0;
 }
 
+// void  BazaTestu::UstawTest(/* BazaTestu *wskBazaTestu,*/ WyrazenieZesp *wskTabTestu /*, unsigned int IloscPytan*/ )
+// {
+//   *this->wskBazaTestu->wskTabTestu = wskTabTestu;
+//   wskBazaTestu->IloscPytan = this->IloscPytan;
+//   wskBazaTestu->IndeksPytania = 0;
+// }
 
 
 
@@ -79,7 +85,7 @@ void UstawTest( BazaTestu *wskBazaTestu, WyrazenieZesp *wskTabTestu, unsigned in
  *       true - gdy operacja sie powiedzie i test zostanie poprawnie
  *              zainicjalizowany,
  *       false - w przypadku przeciwnym.
- */
+//  */
 bool InicjalizujTest( BazaTestu  *wskBazaTestu, const char *sNazwaTestu )
 {
   if (!strcmp(sNazwaTestu,"latwy")) {
@@ -97,6 +103,28 @@ bool InicjalizujTest( BazaTestu  *wskBazaTestu, const char *sNazwaTestu )
   cerr << "Otwarcie testu '" << sNazwaTestu << "' nie powiodlo sie." << endl;
   return false;
 }
+
+
+
+// bool BazaTestu::InicjalizujTest( /*BazaTestu  *wskBazaTestu,*/ const char *sNazwaTestu )
+// {
+//   if (!strcmp(sNazwaTestu,"latwy")) {
+//     BazaTestu::UstawTest(/*wskBazaTestu,*/TestLatwy,sizeof(TestLatwy)/sizeof(WyrazenieZesp));
+//     return true;
+//   }
+//   if (!strcmp(sNazwaTestu,"trudny")) {
+//     UstawTest(/*wskBazaTestu,*/TestTrudny,sizeof(TestTrudny)/sizeof(WyrazenieZesp));
+//     return true;
+//   }
+//   /*
+//    * Analogicznie zrob inicjalizacje dla testu trudne
+//    */
+
+//   cerr << "Otwarcie testu '" << sNazwaTestu << "' nie powiodlo sie." << endl;
+//   return false;
+// }
+
+
 
 
 

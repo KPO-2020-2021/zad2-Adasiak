@@ -15,16 +15,22 @@ struct BazaTestu {
   WyrazenieZesp  *wskTabTestu;   /* Wskaznik na tablice zawierajaca pytania testu */
   unsigned int    IloscPytan;    /* Ilosc wszystkich pytan */
   unsigned int    IndeksPytania; /* Numer pytania, ktore ma byc pobrane jako nastepne */
+
+  // void UstawTest( /*BazaTestu *wskBazaTestu,*/ WyrazenieZesp *wskTabTestu /*, unsigned int IloscPytan*/ );
+
+  // bool InicjalizujTest( /*BazaTestu  *wskBazaTestu,*/ const char*  sNazwaTestu );
+
+
 };
 
 
 /*
  * Inicjalizuje test powiazany z dana nazwa.
- */
-bool InicjalizujTest( BazaTestu  *wskBazaTestu, const char*  sNazwaTestu );
-/*
- * Udostepnia nastepne pytanie z bazy.
- */
+// //  */
+ bool InicjalizujTest( BazaTestu  *wskBazaTestu, const char*  sNazwaTestu );
+// // // /*
+//  * Udostepnia nastepne pytanie z bazy.
+//  */
 bool PobierzNastpnePytanie( BazaTestu  *wskBazaTestu,  WyrazenieZesp *wskWyr );
 
 #endif

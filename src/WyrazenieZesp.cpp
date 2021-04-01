@@ -1,19 +1,11 @@
 #include "WyrazenieZesp.hh"
-// #include "LZespolona.hh"
-
 #include <iostream>
-// #include <cmath>
 #include <cstring>
-// #include <fstream>
 
 using namespace std;
 
-/*
- * Tu nalezy zdefiniowac funkcje, ktorych zapowiedzi znajduja sie
- * w pliku naglowkowym.
- */
 
-LZespolona Oblicz(WyrazenieZesp WyrZ)
+LZespolona WyrazenieZesp::Oblicz(WyrazenieZesp WyrZ)
 {
   LZespolona wynik;
     switch (WyrZ.Op)
@@ -42,30 +34,15 @@ LZespolona Oblicz(WyrazenieZesp WyrZ)
     return wynik;
 }
 
-
-// void Wyswietl(WyrazenieZesp WyrZ)
-// {
-       
-//      cout << " " ;
-//      cout << char(WyrZ.Op); 
-//      cout << " " ; 
-//      cout<< WyrZ.Arg2;
-// }
-
-// void Wczytaj(WyrazenieZesp WyrZ)
-// {
-//     cin >> WyrZ.Arg1 >> char(WyrZ.Op) >> WyrZ.Arg2;
-// }
-
+/*operator strurumienia wyjsciowego wyrazenia zespolonego*/
 ostream & operator << (ostream & StrmWy, WyrazenieZesp  WyrZ)
 {
     return StrmWy << WyrZ.Arg1 << " " << char(WyrZ.Op) << " " << WyrZ.Arg2;
 }
 
-
-istream &operator>> (istream & StrmWej, WyrazenieZesp & Wpom)
+/*operator strurumienia wejsciowego wyrazenia zespolonego*/
+istream & operator >> (istream & StrmWej, WyrazenieZesp & Wpom)
 {
-    // WyrazenieZesp OperChars[]={Op_Dodaj, Op_Odejmij, Op_Dziel, Op_Mnoz};
     char plusiminus='x';
     char const *OperChars="+-*/", *pomOperplusiminus;
 
@@ -89,13 +66,10 @@ istream &operator>> (istream & StrmWej, WyrazenieZesp & Wpom)
     {
         StrmWej.setstate(ios::failbit);
     }
-    // Wpom.Op = plus   iminus;
-    // return StrmWe;
-
     if (StrmWej.fail())
-  {
-    return StrmWej;
-  }
+    {
+      return StrmWej;
+    }
     StrmWej >> Wpom.Arg2;
     if (StrmWej.fail())
     return StrmWej;
@@ -103,51 +77,4 @@ istream &operator>> (istream & StrmWej, WyrazenieZesp & Wpom)
 
     return StrmWej;
 
-    // if (StrmWe.fail()) return StrmWe;
-    //     StrmWe.setstate(ios::failbit);
 }
-
-
-
-// istream & operator >>(istream &StrWe, WyrazenieZesp &WyrZ)
-// {
-//     char znak;
-//     StrWe >> (WyrZ.Arg1);
-//     StrWe >> znak;
-//     switch (znak)
-//     {
-//     case '+':
-//         WyrZ.Op = Op_Dodaj;
-//         break;
-//     case '-':
-//         WyrZ.Op = Op_Odejmij;
-//         break;
-//     case '*':
-//         WyrZ.Op = Op_Mnoz;
-//         break;
-//     case '/':
-//         WyrZ.Op = Op_Dziel;
-//         break;
-//     default:
-//         StrWe.setstate(ios::failbit);
-//         break;
-//     }
-//     StrWe >> WyrZ.Arg2;
-//     return StrWe;
-// }
-
-
-
-
-
-
-
-
-
-// #include "WyrazenieZesp.hh"
-
-
-// /*
-//  * Tu nalezy zdefiniowac funkcje, ktorych zapowiedzi znajduja sie
-//  * w pliku naglowkowym.
-//  */

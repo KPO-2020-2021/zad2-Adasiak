@@ -4,20 +4,23 @@
 
 using namespace std;
 
-void wysietlwynik(score elem)
+/*metoda wyswietlajaca wynik uzyskany przez uzytkownika*/
+void score::wyswietlwynik()const
 {
-    cout << "Poprawne odpowiedzi :" << elem.zpkt << "/" << elem.iloscpytan << endl;
-    cout << "Wynik procentowy:" << fixed << setprecision(1) << elem.zpkt/elem.iloscpytan *100 << "%" << endl;
+    if(this->zpkt<1)
+    {
+        cout << "Poprawne odpowiedzi :" << "0" << "/" << this->iloscpytan << endl;
+        cout << "Wynik procentowy:" << fixed << setprecision(1) << this->zpkt/this->iloscpytan *100 << "%" << endl;
+    }
+    else
+    {
+        cout << "Poprawne odpowiedzi :" << this->zpkt << "/" << this->iloscpytan << endl;
+        cout << "Wynik procentowy:" << fixed << setprecision(1) << this->zpkt/this->iloscpytan *100 << "%" << endl;
+    }
 }
 
-void dobraodp(score elem)
+/*metoda zliczajaca poprawne odpowiedzi uzytkownika*/
+void score::dobraodp()
 {
-    elem.zpkt++;
+    this->zpkt++;
 }
-// #include "Statystyki.hh"
-
-
-// /*
-//  * Tu nalezy zdefiniowac funkcje, ktorych zapowiedzi znajduja sie
-//  * w pliku naglowkowym.
-//  */

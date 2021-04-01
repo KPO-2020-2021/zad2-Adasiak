@@ -81,3 +81,84 @@ TEST_CASE("test LZespolona Dzielenie przez liczbe zespolona5"){
     // CHECK(x/y == z);
 }
 
+
+TEST_CASE("Test LZespolona dzielenie przez skalar 6")
+{
+    LZespolona x, y;
+    double t = 3;
+
+    x.re = 2;
+    x.im = 2;
+
+    y.re = 0.66666;  
+    y.im = 0.66667 ;
+/*Porownanie miesci sie w bledzie przyblizenia*/
+    CHECK(x/t == y);
+}
+
+
+TEST_CASE("Test LZespolona dzielenie przez skalar 7")
+{
+    LZespolona x, y;
+    double t = 10;
+
+    x.re = 2;
+    x.im = 2;
+
+    y.re = 0.2;
+    y.im = 0.2 ;
+
+    CHECK(x/t == y);
+}
+
+
+
+TEST_CASE("Test LZespolona dzielenie przez skalar 8 przyblizenie")
+{
+    LZespolona x, y;
+    double t = 3;
+
+    x.re = 1;
+    x.im = 1;
+
+    y.re = 0.33333;
+    y.im = 0.333333 ;
+
+    std::cout << (x/t)<<std::endl;
+    std::cout << y << std::endl;
+    std::cout << ((x/t)==y) << std::endl;
+    CHECK(x/t == y) ;
+}
+
+
+TEST_CASE("Test LZespolona mnozenia przez liczbe1")
+{
+    LZespolona x, y;
+    double t = 3;
+
+    x.re = 2;
+    x.im = 2;
+
+    y.re = 6;  
+    y.im =  6;
+/*Porownanie miesci sie w bledzie przyblizenia*/
+    CHECK(x*t == y);
+}
+
+
+
+TEST_CASE("Test LZespolona porownania")
+{
+    LZespolona x, y;
+    // double t = 3;
+
+    x.re = 2.33333333;
+    x.im = 2.333333333;
+
+    y.re = 2.3333333333;  
+    y.im =  2.33333333333;
+/*Porownanie miesci sie w bledzie przyblizenia*/
+    CHECK(x == y);
+}
+
+

@@ -1,17 +1,15 @@
 #ifndef WYRAZENIEZESP_HH
 #define WYRAZENIEZESP_HH
 
-#include <iostream>
-// #include <fstream>
+#include <iostream>gi
 #include "LZespolona.hh"
-// #include <cstring>
-// #include <string>
-// #include <iomanip>
+
 
 using namespace std;
 /*!
  * Modeluje zbior operatorow arytmetycznych.
  */
+
 enum Operator
 {
   Op_Dodaj = '+',
@@ -28,17 +26,10 @@ struct WyrazenieZesp
   LZespolona Arg1; // Pierwszy argument wyrazenia arytmetycznego
   Operator Op;     // Opertor wyrazenia arytmetycznego
   LZespolona Arg2; // Drugi argument wyrazenia arytmetycznego
+
+  LZespolona Oblicz(WyrazenieZesp WyrZ);
+
 };
-
-/*
- * Funkcje ponizej nalezy zdefiniowac w module.
- *
- */
-void Wyswietl(WyrazenieZesp WyrZ);
-
-void Wczytaj(WyrazenieZesp WyrZ);
-
-LZespolona Oblicz(WyrazenieZesp WyrZ);
 
 ostream & operator <<(ostream &StrmWy, WyrazenieZesp WyrZ);
 
